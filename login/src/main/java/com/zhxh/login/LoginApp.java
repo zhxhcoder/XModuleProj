@@ -3,7 +3,7 @@ package com.zhxh.login;
 import android.app.Application;
 
 import com.zhxh.base.BaseApp;
-import com.zhxh.componentbase.ServiceFactory;
+import com.zhxh.modulebase.ServiceFactory;
 
 public class LoginApp extends BaseApp {
 

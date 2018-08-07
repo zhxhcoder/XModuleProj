@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.zhxh.componentbase.service.IAccountService;
+import com.zhxh.modulebase.service.IAccountService;
 
 public class AccountService implements IAccountService {
     @Override

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.zhxh.componentbase.ServiceFactory;
+import com.zhxh.modulebase.ServiceFactory;
 
 @Route(path = "/share/share")
 public class ShareActivity extends AppCompatActivity {

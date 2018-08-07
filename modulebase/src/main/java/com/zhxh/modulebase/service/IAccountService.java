@@ -1,4 +1,4 @@
-package com.zhxh.componentbase.service;
+package com.zhxh.modulebase.service;
 
 import android.app.Activity;
 import android.os.Bundle;

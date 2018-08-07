@@ -1,11 +1,11 @@
-package com.zhxh.componentbase.empty_service;
+package com.zhxh.modulebase.empty_service;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.zhxh.componentbase.service.IAccountService;
+import com.zhxh.modulebase.service.IAccountService;
 
 public class EmptyAccountService implements IAccountService {
     @Override

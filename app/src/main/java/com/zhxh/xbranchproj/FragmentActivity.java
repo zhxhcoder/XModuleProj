@@ -3,7 +3,7 @@ package com.zhxh.xbranchproj;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.zhxh.componentbase.ServiceFactory;
+import com.zhxh.modulebase.ServiceFactory;
 
 public class FragmentActivity extends AppCompatActivity {
 

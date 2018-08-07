@@ -1,13 +1,12 @@
 package com.zhxh.xbranchproj.interceptor;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Interceptor;
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback;
 import com.alibaba.android.arouter.facade.template.IInterceptor;
-import com.zhxh.componentbase.ServiceFactory;
+import com.zhxh.modulebase.ServiceFactory;
 
 @Interceptor(priority = 8, name = "登录状态拦截器")
 public class LoginInterceptor implements IInterceptor {

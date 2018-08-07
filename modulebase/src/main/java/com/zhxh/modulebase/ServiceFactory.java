@@ -1,7 +1,7 @@
-package com.zhxh.componentbase;
+package com.zhxh.modulebase;
 
-import com.zhxh.componentbase.empty_service.EmptyAccountService;
-import com.zhxh.componentbase.service.IAccountService;
+import com.zhxh.modulebase.empty_service.EmptyAccountService;
+import com.zhxh.modulebase.service.IAccountService;
 
 public class ServiceFactory {
 

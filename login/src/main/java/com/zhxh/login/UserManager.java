@@ -1,5 +1,5 @@
 package com.zhxh.login;
 
-public class AccountUtils {
+public class UserManager {
     public static UserInfo userInfo;
 }

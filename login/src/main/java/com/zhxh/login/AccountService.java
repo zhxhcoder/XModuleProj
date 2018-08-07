@@ -11,12 +11,12 @@ import com.zhxh.modulebase.service.IAccountService;
 public class AccountService implements IAccountService {
     @Override
     public boolean isLogin() {
-        return AccountUtils.userInfo != null;
+        return UserManager.userInfo != null;
     }
 
     @Override
     public String getAccountId() {
-        return AccountUtils.userInfo == null ? null : AccountUtils.userInfo.getAccountId();
+        return UserManager.userInfo == null ? null : UserManager.userInfo.getAccountId();
     }
 
     @Override

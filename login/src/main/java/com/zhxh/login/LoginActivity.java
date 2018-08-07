@@ -3,7 +3,6 @@ package com.zhxh.login;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -28,16 +27,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        AccountUtils.userInfo = new UserInfo("10086", "Admin");
+        UserManager.userInfo = new UserInfo("10086", "Admin");
         updateLoginState();
     }
 
     private void updateLoginState() {
-        tvState.setText("这里是登录界面：" + (AccountUtils.userInfo == null ? "未登录" : AccountUtils.userInfo.getUserName()));
+        tvState.setText("这里是登录界面：" + (UserManager.userInfo == null ? "未登录" : UserManager.userInfo.getUserName()));
     }
 
     public void exit(View view) {
-        AccountUtils.userInfo = null;
+        UserManager.userInfo = null;
         updateLoginState();
     }
 

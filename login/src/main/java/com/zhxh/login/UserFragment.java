@@ -14,7 +14,7 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
         TextView tvName = view.findViewById(R.id.tv_user_name);
-        tvName.setText(AccountUtils.userInfo == null ? "用户未登录" : "登录用户：" + AccountUtils.userInfo.getUserName());
+        tvName.setText(UserManager.userInfo == null ? "用户未登录" : "登录用户：" + UserManager.userInfo.getUserName());
         return view;
     }
 }

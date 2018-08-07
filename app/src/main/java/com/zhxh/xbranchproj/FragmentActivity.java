@@ -1,4 +1,4 @@
-package com.zhxh.componentdemo;
+package com.zhxh.xbranchproj;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

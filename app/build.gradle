@@ -4,7 +4,7 @@ android {
     compileSdkVersion compile_sdk_version.toInteger()
 
     defaultConfig {
-        applicationId "com.zhxh.componentdemo"
+        applicationId "com.zhxh.xbranchproj"
         minSdkVersion min_sdk_version.toInteger()
         targetSdkVersion target_sdt_version.toInteger()
         versionCode 1

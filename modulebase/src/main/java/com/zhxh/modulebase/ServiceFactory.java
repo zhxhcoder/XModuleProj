@@ -2,10 +2,12 @@ package com.zhxh.modulebase;
 
 import com.zhxh.modulebase.empty_service.EmptyAccountService;
 import com.zhxh.modulebase.service.IAccountService;
+import com.zhxh.modulebase.service.IShareService;
 
 public class ServiceFactory {
 
     private IAccountService accountService;
+    private IShareService shareService;
 
     /**
      * 禁止外部创建 ServiceFactory 对象
@@ -24,6 +26,8 @@ public class ServiceFactory {
         private static ServiceFactory serviceFactory = new ServiceFactory();
     }
 
+
+    /* *******************登录模块**********************************/
     /**
      * 接收 Login 组件实现的 Service 实例
      */
@@ -39,5 +43,16 @@ public class ServiceFactory {
             accountService = new EmptyAccountService();
         }
         return accountService;
+    }
+
+
+    /* *******************分享模块**********************************/
+
+    public IShareService getShareService() {
+        return shareService;
+    }
+
+    public void setShareService(IShareService shareService) {
+        this.shareService = shareService;
     }
 }

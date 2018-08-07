@@ -1,6 +1,6 @@
 package com.zhxh.modulebase;
 
-import com.zhxh.modulebase.empty_service.EmptyAccountService;
+import com.zhxh.modulebase.exception.EmptyAccountService;
 import com.zhxh.modulebase.service.IAccountService;
 import com.zhxh.modulebase.service.IShareService;
 

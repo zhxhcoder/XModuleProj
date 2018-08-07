@@ -1,4 +1,4 @@
-package com.zhxh.modulebase.empty_service;
+package com.zhxh.modulebase.exception;
 
 import android.app.Activity;
 import android.os.Bundle;

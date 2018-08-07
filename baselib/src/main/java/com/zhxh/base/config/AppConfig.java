@@ -1,4 +1,4 @@
-package com.zhxh.base;
+package com.zhxh.base.config;
 
 public class AppConfig {
     private static final String LoginApp = "com.zhxh.login.LoginApp";

@@ -1,4 +1,4 @@
-package com.zhxh.base;
+package com.zhxh.base.app;
 
 import android.app.Application;
 

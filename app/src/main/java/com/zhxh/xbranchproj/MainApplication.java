@@ -3,8 +3,8 @@ package com.zhxh.xbranchproj;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.zhxh.base.AppConfig;
-import com.zhxh.base.BaseApp;
+import com.zhxh.base.config.AppConfig;
+import com.zhxh.base.app.BaseApp;
 
 public class MainApplication extends BaseApp {
     @Override

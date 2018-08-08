@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * Created by zhxh on 2018/8/8
  */
-public class XString {
+public class StringUtils {
 
     private static final String floatRegex = "(-?\\d+)|(-?\\d+\\.\\d+)";
     private static final String emptyRegex = "\\s*";

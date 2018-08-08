@@ -1,4 +1,5 @@
 package com.zhxh.base.utils;
+
 import android.graphics.Paint;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -11,8 +12,9 @@ import java.util.regex.Pattern;
 /**
  * Created by zhxh on 2018/8/8
  */
-public class XText {
+public class TextUtils {
     private static Paint paint = new Paint();
+
     /**
      * 获取字体宽度
      *

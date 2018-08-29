@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.zhxh.xlibkit.rxbus.RxBus;
 
 @Route(path = "/account/login")
 public class LoginActivity extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginShare(View view) {
+        RxBus.getDefault().post("loginShareTest");
         ARouter.getInstance().build("/share/share").withString("share_content", "分享数据到微博").navigation();
     }
 }

@@ -47,4 +47,10 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
+    //返回
+    protected void goBack() {
+
+        finish();
+    }
 }

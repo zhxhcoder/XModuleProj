@@ -7,10 +7,11 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.zhxh.base.app.BaseActivity;
 import com.zhxh.xlibkit.rxbus.RxBus;
 
 @Route(path = "/account/login")
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private TextView tvState;
 

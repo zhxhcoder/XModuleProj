@@ -8,7 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class UserFragment extends Fragment {
+import com.zhxh.base.app.BaseFragment;
+
+public class UserFragment extends BaseFragment {
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    public void requestData() {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

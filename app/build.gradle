@@ -37,6 +37,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     implementation project(':baselib')
     runtimeOnly project(':login')
     runtimeOnly project(':share')

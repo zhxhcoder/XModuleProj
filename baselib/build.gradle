@@ -35,7 +35,6 @@ dependencies {
 
     api 'com.zhxh:xlibkit:2.1'
     api 'com.jakewharton:butterknife:8.8.1'
-    api 'com.jakewharton:butterknife-compiler:8.8.1'
 
     api project(':modulebase')
 }

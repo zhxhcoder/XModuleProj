@@ -11,7 +11,7 @@
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srlEnableLoadMore="false"
+        app:srlEnableLoadmore="false"
         app:srlEnableOverScrollBounce="false"
         app:srlEnableOverScrollDrag="false"
         app:srlEnablePreviewInEditMode="false">

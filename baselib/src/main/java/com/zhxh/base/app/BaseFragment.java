@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,8 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zhxh.base.component.LoadingDialog;
 import com.zhxh.base.config.ActivityRequestContext;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -24,6 +28,8 @@ public abstract class BaseFragment extends Fragment {
     protected CompositeDisposable mDisposables = new CompositeDisposable();
 
     protected View rootView;
+    private Unbinder unbinder;
+    private LoadingDialog loadingDialog;
 
     protected abstract int getLayoutId();
 
@@ -31,7 +37,6 @@ public abstract class BaseFragment extends Fragment {
      * 初始化控件
      */
     protected abstract void initView(View view);
-
 
     /**
      * 请求数据
@@ -42,17 +47,17 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         baseActivity = (BaseActivity) context;
     }
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         if (rootView == null) {
             rootView = inflater.inflate(getLayoutId(), container, false);
+            unbinder = ButterKnife.bind(this, rootView);
         }
+        unbinder = ButterKnife.bind(this, rootView);
         getInitBundle();
         initView(rootView);
         return rootView;
@@ -82,6 +87,69 @@ public abstract class BaseFragment extends Fragment {
 
     public void onNetWorkChange(boolean isConnected) {
 
+    }
+
+    /**
+     * 加载框
+     */
+    public void showLoadingDialog(String info) {
+        showLoadingDialog(info, false);
+    }
+
+    public void showLoadingDialog(String info, boolean autoCancel) {
+        try {
+            if (loadingDialog == null || !loadingDialog.isShowing()) {
+                loadingDialog = new LoadingDialog.Builder(getContext())
+                        .setIconType(LoadingDialog.Builder.ICON_TYPE_LOADING)
+                        .setTipWord(info)
+                        .create();
+                loadingDialog.show();
+
+                if (autoCancel) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            hideLoading();
+                        }
+                    }, 1000);
+                }
+            } else {
+                hideLoading();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void showLoading() {
+        try {
+            if (loadingDialog == null || !loadingDialog.isShowing()) {
+                loadingDialog = new LoadingDialog.Builder(getContext())
+                        .setIconType(LoadingDialog.Builder.ICON_TYPE_LOADING)
+                        .setTipWord("正在处理")
+                        .create();
+                loadingDialog.show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 取消加载框
+     */
+    public void hideLoading() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+            loadingDialog = null;
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null)
+            unbinder.unbind();
     }
 
     @Override

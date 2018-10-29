@@ -2,7 +2,6 @@ package com.zhxh.xbranchproj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
@@ -41,6 +40,10 @@ public class MainActivity extends BaseActivity {
      * @param view
      */
     public void fragment(View view) {
+        startActivity(new Intent(this, FragmentActivity.class));
+    }
+
+    public void toList(View view) {
         startActivity(new Intent(this, FragmentActivity.class));
     }
 }

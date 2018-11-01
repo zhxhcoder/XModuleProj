@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
@@ -35,6 +39,8 @@ dependencies {
 
     api 'com.zhxh:xlibkit:2.1'
     api 'com.jakewharton:butterknife:8.8.1'
+    api 'com.squareup.okhttp3:okhttp:3.11.0'
+    annotationProcessor 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 
     api project(':modulebase')
 }

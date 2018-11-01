@@ -8,6 +8,7 @@ import com.zhxh.base.utils.CommonUtils;
 public class Network {
 
     private static final String API_URL = "https://api.niuguwang.com";
+    private static final String TR_URL = "https://str.niuguwang.com";
 
     //端口号
     public static final int PORT = 8991;
@@ -23,6 +24,10 @@ public class Network {
             case RequestCommand.COMMAND_BULLBAO_SCORE_RECORD:
                 url.append(API_URL);
                 url.append("/task/v01/score/Records");
+                break;
+            case RequestCommand.COMMAND_APP_PUSH_CONFIG:
+                url.append(TR_URL);
+                url.append("/api/appconfig.ashx");
                 break;
 
             default:

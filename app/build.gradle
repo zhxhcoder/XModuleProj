@@ -7,8 +7,8 @@ android {
         applicationId "com.zhxh.xbranchproj"
         minSdkVersion min_sdk_version.toInteger()
         targetSdkVersion target_sdt_version.toInteger()
-        versionCode 1
-        versionName "1.0"
+        versionCode 233
+        versionName "4.0.2"
 
         javaCompileOptions {
             annotationProcessorOptions {

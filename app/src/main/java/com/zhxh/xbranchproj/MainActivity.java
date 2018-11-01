@@ -22,16 +22,10 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         List<KeyValueData> params = new ArrayList<>();
-        params.add(new KeyValueData("userToken", ""));
-        params.add(new KeyValueData("size", 10));
-        params.add(new KeyValueData("BoundaryId", 1));
-
-        mDisposables.add(RxHttp.call(RequestCommand.COMMAND_BULLBAO_SCORE_RECORD, params, data -> {
-
-            LogUtil.d("RxHttp", data);
-
+        params.add(new KeyValueData("userToken", "heheda"));
+        mDisposables.add(RxHttp.call(RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
+            LogUtil.d("RxHttpRxHttp", data);
         }));
 
     }

@@ -3,7 +3,6 @@ package com.zhxh.xbranchproj;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -11,7 +10,7 @@ import com.zhxh.base.app.BaseActivity;
 import com.zhxh.base.network.KeyValueData;
 import com.zhxh.base.network.RequestCommand;
 import com.zhxh.base.network.RxHttp;
-import com.zhxh.xlibkit.common.LogUtil;
+import com.zhxh.base.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,17 +21,21 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     private void testPost() {
+        List<KeyValueData> params = new ArrayList<>();
+        params.add(new KeyValueData("name", "heheda"));
+        mDisposables.add(RxHttp.call(true, RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
+            LogUtils.d("RxHttpRxHttpPost", data);
+        }));
     }
 
     private void testGet() {
         List<KeyValueData> params = new ArrayList<>();
         params.add(new KeyValueData("name", "heheda"));
         mDisposables.add(RxHttp.call(RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
-            Log.d("RxHttpRxHttp", data);
+            LogUtils.d("RxHttpRxHttpGet", data);
         }));
     }
 

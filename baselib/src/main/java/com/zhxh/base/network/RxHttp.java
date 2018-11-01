@@ -66,7 +66,7 @@ public class RxHttp {
 
     /*get请求返回实体类*/
     public static <T> Disposable call(int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult) {
-        return  call(false, requestCommand, params, t, callResult, null);
+        return call(false, requestCommand, params, t, callResult, null);
     }
 
     public static <T> Disposable call(int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult, CallError callError) {
@@ -114,6 +114,11 @@ public class RxHttp {
         return call(false, requestCommand, params, callResult, null);
     }
 
+    /*post请求返回字符串*/
+    public static Disposable call(boolean isPost, int requestCommand, List<KeyValueData> params, CallResult<String> callResult) {
+        return call(isPost, requestCommand, params, callResult, null);
+    }
+
     public static Disposable call(int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
         return call(false, requestCommand, params, callResult, callError);
     }
@@ -127,7 +132,7 @@ public class RxHttp {
         return Observable.just(delay).delay(delay, TimeUnit.MILLISECONDS).subscribe(new Consumer<Long>() {
             @Override
             public void accept(Long aLong) throws Exception {
-                call(isPost, requestCommand, params, t, callResult,null);
+                call(isPost, requestCommand, params, t, callResult, null);
             }
         });
     }
@@ -141,7 +146,7 @@ public class RxHttp {
 
                     @Override
                     public void onNext(Long value) {
-                        call(isPost, requestCommand, params, t, callResult,null);
+                        call(isPost, requestCommand, params, t, callResult, null);
                     }
 
                     @Override

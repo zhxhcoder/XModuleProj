@@ -7,6 +7,13 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhxh.base.app.BaseActivity;
+import com.zhxh.base.network.KeyValueData;
+import com.zhxh.base.network.RequestCommand;
+import com.zhxh.base.network.RxHttp;
+import com.zhxh.xlibkit.common.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -14,6 +21,19 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        List<KeyValueData> params = new ArrayList<>();
+        params.add(new KeyValueData("userToken", ""));
+        params.add(new KeyValueData("size", 10));
+        params.add(new KeyValueData("BoundaryId", 1));
+
+        mDisposables.add(RxHttp.call(RequestCommand.COMMAND_BULLBAO_SCORE_RECORD, params, data -> {
+
+            LogUtil.d("RxHttp", data);
+
+        }));
+
     }
 
     /**

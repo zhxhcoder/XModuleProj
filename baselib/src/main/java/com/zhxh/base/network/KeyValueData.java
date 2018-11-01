@@ -14,6 +14,20 @@ public class KeyValueData implements Serializable {
     @SerializedName(value = "Value", alternate = {"value"})
     private String value;
 
+    public KeyValueData(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public KeyValueData(String key, int value) {
+        this.key = key;
+        this.value = String.valueOf(value);
+    }
+
+    public KeyValueData(int key, String value) {
+        this.key = String.valueOf(key);
+        this.value = value;
+    }
     public String getKey() {
         return key;
     }

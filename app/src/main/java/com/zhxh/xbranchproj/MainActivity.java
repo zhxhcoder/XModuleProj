@@ -3,6 +3,7 @@ package com.zhxh.xbranchproj;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -29,9 +30,9 @@ public class MainActivity extends BaseActivity {
 
     private void testGet() {
         List<KeyValueData> params = new ArrayList<>();
-        params.add(new KeyValueData("userToken", "heheda"));
+        params.add(new KeyValueData("name", "heheda"));
         mDisposables.add(RxHttp.call(RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
-            LogUtil.d("RxHttpRxHttp", data);
+            Log.d("RxHttpRxHttp", data);
         }));
     }
 

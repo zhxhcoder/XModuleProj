@@ -26,45 +26,27 @@ public class CommonDataManager {
 
     public static DisplayMetrics displayMetrics;
     /**
-     * 系统包名
-     */
-    public static String PACKAGENAME = "/com.niuguwang.stock";
-    public static String APPLICATION_PACKAGE_NAME = "com.niuguwang.stock";
-    /**
      * 软件版本号
      */
-    public static String VERSIONNAME;
+    public static String VERSIONNAME = "4.0.2";
 
 
-    public static String userToken;
+    public static String userToken = "hehe";
     /**
      * 版本code
      */
     public static int VERSIONCODE = 0;
-    /**
-     * app类型1主版本 303尊享版
-     */
+
     public static int PACKTYPE = 1;
     /**
      * 设备型号
      */
     public static String DEVICE;
     /**
-     * 设备mac
-     */
-    public static String DEVICEMAC;
-    /**
-     * 设备OS
-     */
-    public static String OS = "Android";
-    /**
      * 渠道
      */
     public static String CHANNEL = "";
-    /**
-     * 设备类型
-     ***/
-    public static String DEVICEMODEL;
+
     /*** 设备操作系统版本 **/
     public static String DEVICEVERSION;
     /**
@@ -77,10 +59,6 @@ public class CommonDataManager {
      * 应用是否激活状态
      */
     public static boolean isActive = false;
-    /**
-     * 贴子页字体大小 默认19
-     */
-    public static int TOPIC_TEXTSIZE = 19;
 
     public static void init(Context activity) {
 
@@ -109,7 +87,6 @@ public class CommonDataManager {
         } catch (Exception ex) {
 
         }
-
     }
 
 

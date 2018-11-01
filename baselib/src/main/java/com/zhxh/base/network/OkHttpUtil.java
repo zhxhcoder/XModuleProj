@@ -18,7 +18,6 @@ import okhttp3.Response;
  * Created by zhxh on 2018/11/1
  */
 public class OkHttpUtil {
-
     /**
      * 连接或读取超时
      */
@@ -64,23 +63,17 @@ public class OkHttpUtil {
 
         Response response = execute(request);
         if (response.isSuccessful()) {
-
             byte[] responseData = response.body().bytes();
-
             LogUtils.d("", "********START**********");
             try {
-
                 LogUtils.d("body", (responseData == null) ? "null" :
                         CommonUtils.toUTF8Str(responseData));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             LogUtils.d("", "********END*************");
-
             return responseData;
-
         } else {
-
             throw new IOException("Unexpected code " + response);
         }
     }
@@ -107,23 +100,17 @@ public class OkHttpUtil {
         Response response = execute(request);
 
         if (response.isSuccessful()) {
-
             byte[] responseData = response.body().bytes();
-
             LogUtils.d("", "********START POST**********");
             try {
-
                 LogUtils.d("body", (responseData == null) ? "null" :
                         CommonUtils.toUTF8Str(responseData));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             LogUtils.d("", "********END  POST*************");
-
             return responseData;
-
         } else {
-
             throw new IOException("Unexpected code " + response);
         }
     }
@@ -140,21 +127,17 @@ public class OkHttpUtil {
         synchronized (mOkHttpClient.dispatcher().getClass()) {
 
             try {
-
                 for (Call call : mOkHttpClient.dispatcher().queuedCalls()) {
-
                     int tag = (Integer) call.request().tag();
                     if (tag == requestID)
                         call.cancel();
                 }
 
                 for (Call call : mOkHttpClient.dispatcher().runningCalls()) {
-
                     int tag = (Integer) call.request().tag();
                     if (tag == requestID)
                         call.cancel();
                 }
-
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

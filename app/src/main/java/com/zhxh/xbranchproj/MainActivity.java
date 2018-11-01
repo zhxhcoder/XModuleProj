@@ -22,12 +22,17 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+    }
+
+    private void testPost() {
+    }
+
+    private void testGet() {
         List<KeyValueData> params = new ArrayList<>();
         params.add(new KeyValueData("userToken", "heheda"));
         mDisposables.add(RxHttp.call(RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
             LogUtil.d("RxHttpRxHttp", data);
         }));
-
     }
 
     /**
@@ -59,5 +64,10 @@ public class MainActivity extends BaseActivity {
 
     public void toList(View view) {
         startActivity(new Intent(this, FragmentActivity.class));
+    }
+
+    public void network(View view) {
+        testGet();
+        testPost();
     }
 }

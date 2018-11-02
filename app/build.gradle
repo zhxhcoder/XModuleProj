@@ -4,7 +4,7 @@ android {
     compileSdkVersion compile_sdk_version.toInteger()
 
     defaultConfig {
-        applicationId "com.zhxh.xbranchproj"
+        applicationId "com.zhxh.xmoduleproj"
         minSdkVersion min_sdk_version.toInteger()
         targetSdkVersion target_sdt_version.toInteger()
         versionCode 233

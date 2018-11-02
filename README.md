@@ -62,7 +62,7 @@
 在 AndroidStudio 开发 Android 项目时，使用的是 Gradle 来构建，具体来说使用的是 Android Gradle 插件来构建，Android Gradle 中提供了三种插件，在开发中可以通过配置不同的插件来配置不同的工程。
 
 - App 插件，id: com.android.application
-- Library 插件，id: com.android.libraay
+- Library 插件，id: com.android.library
 - Test 插件，id: com.android.test
 
 区别比较简单， App 插件来配置一个 Android App 工程，项目构建后输出一个 APK 安装包，Library 插件来配置一个 Android Library 工程，构建后输出 aar 包，Test 插件来配置一个 Android Test 工程。我们这里主要使用 App 插件和 Library 插件来实现组件的单独调试。这里就出现了第一个小问题，如何动态配置组件的工程类型？

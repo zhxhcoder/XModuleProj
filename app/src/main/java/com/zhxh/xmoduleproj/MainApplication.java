@@ -1,4 +1,4 @@
-package com.zhxh.xbranchproj;
+package com.zhxh.xmoduleproj;
 
 import android.app.Application;
 

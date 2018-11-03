@@ -43,13 +43,10 @@ public class Network {
         OkHttpTools okHttpTools = new OkHttpTools();
 
         if ("GET".equals(dataPackage.getRequestMethod())) {
-
             okHttpTools.httpGet(url.toString(), dataPackage);
         } else {
-
             okHttpTools.httpPost(url.toString(), dataPackage);
         }
-
     }
 
     public static String getUrl(int requestID) {

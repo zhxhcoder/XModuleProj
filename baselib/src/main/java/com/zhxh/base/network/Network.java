@@ -20,7 +20,6 @@ public class Network {
         StringBuffer url = new StringBuffer();
 
         switch (requestID) {
-
             case RequestCommand.COMMAND_BULLBAO_SCORE_RECORD:
                 url.append(API_URL);
                 url.append("/task/v01/score/Records");
@@ -29,7 +28,6 @@ public class Network {
                 url.append(TR_URL);
                 url.append("/api/appconfig.ashx");
                 break;
-
             default:
                 break;
         }
@@ -49,13 +47,4 @@ public class Network {
         }
     }
 
-    public static String getUrl(int requestID) {
-
-        switch (requestID) {
-            case -1:
-                return "";
-            default:
-                return "";
-        }
-    }
 }

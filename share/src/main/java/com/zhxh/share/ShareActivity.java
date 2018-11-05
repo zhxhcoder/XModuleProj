@@ -1,6 +1,5 @@
 package com.zhxh.share;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,7 +13,6 @@ import com.zhxh.modulebase.ServiceFactory;
 
 @Route(path = "/share/share")
 public class ShareActivity extends BaseActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +24,6 @@ public class ShareActivity extends BaseActivity {
                 ((TextView) findViewById(R.id.share_content)).setText(content);
             }
         }
-
         share();
     }
 

@@ -65,9 +65,16 @@ public class RxHttp {
         return call(false, false, requestCommand, params, t, callResult, null);
     }
 
+    /*get请求返回实体类-捕捉异常*/
     public static <T> Disposable call(int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult, CallError callError) {
         return call(false, false, requestCommand, params, t, callResult, callError);
     }
+
+    /*post请求返回实体类*/
+    public static <T> Disposable call(boolean isPost, boolean isEncryptBoo, int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult) {
+        return call(isPost, isEncryptBoo, requestCommand, params, t, callResult, null);
+    }
+
 
     //最终请求函数
     public static Disposable call(boolean isPost, boolean isEncryptBoo, int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
@@ -106,15 +113,17 @@ public class RxHttp {
     public static Disposable call(int requestCommand, List<KeyValueData> params, CallResult<String> callResult) {
         return call(false, false, requestCommand, params, callResult, null);
     }
-
-    /*post请求返回字符串*/
-    public static Disposable call(boolean isPost, int requestCommand, List<KeyValueData> params, CallResult<String> callResult) {
-        return call(isPost, false, requestCommand, params, callResult, null);
-    }
+    /*get请求返回字符串-捕捉异常*/
 
     public static Disposable call(int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
         return call(false, false, requestCommand, params, callResult, callError);
     }
+
+    /*post请求返回字符串*/
+    public static Disposable call(boolean isPost, boolean isEncryptBoo, int requestCommand, List<KeyValueData> params, CallResult<String> callResult) {
+        return call(isPost, isEncryptBoo, requestCommand, params, callResult, null);
+    }
+
 
     /*get请求返回delay字符串*/
     public static <T> Disposable callDelay(long delay, int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult) {

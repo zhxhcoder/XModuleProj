@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity {
     private void testPost() {
         List<KeyValueData> params = new ArrayList<>();
         params.add(new KeyValueData("name", "heheda"));
-        mDisposables.add(RxHttp.call(true, RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
+        mDisposables.add(RxHttp.call(true, true,RequestCommand.COMMAND_APP_PUSH_CONFIG, params, data -> {
             LogUtils.d("RxHttpRxHttpPost", data);
         }));
     }

@@ -28,17 +28,12 @@ public class RxHttp {
             if (!e.isDisposed()) {
                 DefaultPackage pkg = new DefaultPackage(
                         requestCommand, params, isPost);
-                try {
-                    Network.processPackage(pkg);
-                    String dataStr = (String) pkg.getData();
-                    e.onNext(dataStr);
-                    e.onComplete();
+                Network.processPackage(pkg);
+                String dataStr = (String) pkg.getData();
+                e.onNext(dataStr);
+                e.onComplete();
 
-                    LogUtils.d(TAG, "rxUrl\n" + pkg.getRequestUrl() + "?" + pkg.getRequestData());
-
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
+                LogUtils.d(TAG, "rxUrl\n" + pkg.getRequestUrl() + "?" + pkg.getRequestData());
             }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -48,14 +43,14 @@ public class RxHttp {
                 })
                 .subscribe(new Consumer<T>() {
                     @Override
-                    public void accept(T data) throws Exception {
+                    public void accept(T data) {
                         if (data != null) {
                             callResult.onResult(data);
                         }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    public void accept(Throwable throwable) {
                         throwable.printStackTrace();
                         if (callError != null) {
                             callError.onError(throwable);
@@ -76,23 +71,19 @@ public class RxHttp {
     public static Disposable call(boolean isPost, int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
         return Observable.create((ObservableOnSubscribe<String>) e -> {
             if (!e.isDisposed()) {
-                try {
-                    DefaultPackage pkg = new DefaultPackage(
-                            requestCommand, params, isPost);
-                    Network.processPackage(pkg);
-                    String dataStr = (String) pkg.getData();
-                    e.onNext(dataStr);
-                    e.onComplete();
-                    LogUtils.d(TAG, "rxUrl\n" + pkg.getRequestUrl() + "?" + pkg.getRequestData());
-                } catch (Exception e1) {
-                    e.onError(e1);
-                }
+                DefaultPackage pkg = new DefaultPackage(
+                        requestCommand, params, isPost);
+                Network.processPackage(pkg);
+                String dataStr = (String) pkg.getData();
+                e.onNext(dataStr);
+                e.onComplete();
+                LogUtils.d(TAG, "rxUrl\n" + pkg.getRequestUrl() + "?" + pkg.getRequestData());
             }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
-                    public void accept(String data) throws Exception {
+                    public void accept(String data) {
                         if (data != null) {
                             callResult.onResult(data);
                             LogUtils.d(TAG, "rxResponse\n" + data);
@@ -100,7 +91,7 @@ public class RxHttp {
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    public void accept(Throwable throwable) {
                         if (callError != null) {
                             callError.onError(throwable);
                         }
@@ -131,7 +122,7 @@ public class RxHttp {
     public static <T> Disposable callDelay(boolean isPost, long delay, int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult) {
         return Observable.just(delay).delay(delay, TimeUnit.MILLISECONDS).subscribe(new Consumer<Long>() {
             @Override
-            public void accept(Long aLong) throws Exception {
+            public void accept(Long aLong) {
                 call(isPost, requestCommand, params, t, callResult, null);
             }
         });

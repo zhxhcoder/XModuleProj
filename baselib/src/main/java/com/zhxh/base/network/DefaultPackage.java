@@ -16,7 +16,10 @@ public class DefaultPackage extends DataPackage {
      * post请求状态
      */
     private boolean isPost;
-
+    /**
+     * 加密状态
+     */
+    private boolean isEncryptBoo;
     /**
      * 请求参数数据集
      */
@@ -38,6 +41,12 @@ public class DefaultPackage extends DataPackage {
         this.keyValueDatas = keyValueDatas;
 
         this.isPost = isPost;
+    }
+
+    public DefaultPackage(int requestID, List<KeyValueData> keyValueDatas, boolean isPostBoo, boolean isEncryptBoo) {
+
+        this(requestID, keyValueDatas, isPostBoo);
+        this.isEncryptBoo = isEncryptBoo;
     }
 
     @Override
@@ -65,7 +74,7 @@ public class DefaultPackage extends DataPackage {
             return null;
         }
 
-        if (isPost) {
+        if (isEncryptBoo) {
 
             JSONObject jsonObj = new JSONObject();
 
@@ -83,7 +92,7 @@ public class DefaultPackage extends DataPackage {
 
         } else {
 
-            StringBuffer param = new StringBuffer();
+            StringBuilder param = new StringBuilder();
 
             for (KeyValueData data : keyValueDatas) {
                 param.append(PARAMETER_SEPARATOR)

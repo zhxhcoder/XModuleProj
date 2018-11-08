@@ -23,11 +23,12 @@ public class RxHttp {
 
     private final static String TAG = "RxHttp";
 
-    public static <T> Disposable call(boolean isPost, int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult, CallError callError) {
+    //最终请求函数
+    public static <T> Disposable call(boolean isPost, boolean isEncryptBoo, int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult, CallError callError) {
         return Observable.create((ObservableOnSubscribe<String>) e -> {
             if (!e.isDisposed()) {
                 DefaultPackage pkg = new DefaultPackage(
-                        requestCommand, params, isPost);
+                        requestCommand, params, isPost, isEncryptBoo);
                 Network.processPackage(pkg);
                 String dataStr = (String) pkg.getData();
                 e.onNext(dataStr);
@@ -43,14 +44,14 @@ public class RxHttp {
                 })
                 .subscribe(new Consumer<T>() {
                     @Override
-                    public void accept(T data) {
+                    public void accept(T data) throws Exception {
                         if (data != null) {
                             callResult.onResult(data);
                         }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) {
+                    public void accept(Throwable throwable) throws Exception {
                         throwable.printStackTrace();
                         if (callError != null) {
                             callError.onError(throwable);
@@ -61,18 +62,19 @@ public class RxHttp {
 
     /*get请求返回实体类*/
     public static <T> Disposable call(int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult) {
-        return call(false, requestCommand, params, t, callResult, null);
+        return call(false, false, requestCommand, params, t, callResult, null);
     }
 
     public static <T> Disposable call(int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult, CallError callError) {
-        return call(false, requestCommand, params, t, callResult, callError);
+        return call(false, false, requestCommand, params, t, callResult, callError);
     }
 
-    public static Disposable call(boolean isPost, int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
+    //最终请求函数
+    public static Disposable call(boolean isPost, boolean isEncryptBoo, int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
         return Observable.create((ObservableOnSubscribe<String>) e -> {
             if (!e.isDisposed()) {
                 DefaultPackage pkg = new DefaultPackage(
-                        requestCommand, params, isPost);
+                        requestCommand, params, isPost, isEncryptBoo);
                 Network.processPackage(pkg);
                 String dataStr = (String) pkg.getData();
                 e.onNext(dataStr);
@@ -83,7 +85,7 @@ public class RxHttp {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
-                    public void accept(String data) {
+                    public void accept(String data) throws Exception {
                         if (data != null) {
                             callResult.onResult(data);
                             LogUtils.d(TAG, "rxResponse\n" + data);
@@ -91,7 +93,7 @@ public class RxHttp {
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) {
+                    public void accept(Throwable throwable) throws Exception {
                         if (callError != null) {
                             callError.onError(throwable);
                         }
@@ -102,16 +104,16 @@ public class RxHttp {
 
     /*get请求返回字符串*/
     public static Disposable call(int requestCommand, List<KeyValueData> params, CallResult<String> callResult) {
-        return call(false, requestCommand, params, callResult, null);
+        return call(false, false, requestCommand, params, callResult, null);
     }
 
     /*post请求返回字符串*/
     public static Disposable call(boolean isPost, int requestCommand, List<KeyValueData> params, CallResult<String> callResult) {
-        return call(isPost, requestCommand, params, callResult, null);
+        return call(isPost, false, requestCommand, params, callResult, null);
     }
 
     public static Disposable call(int requestCommand, List<KeyValueData> params, CallResult<String> callResult, CallError callError) {
-        return call(false, requestCommand, params, callResult, callError);
+        return call(false, false, requestCommand, params, callResult, callError);
     }
 
     /*get请求返回delay字符串*/
@@ -122,8 +124,8 @@ public class RxHttp {
     public static <T> Disposable callDelay(boolean isPost, long delay, int requestCommand, List<KeyValueData> params, Class<T> t, CallResult<T> callResult) {
         return Observable.just(delay).delay(delay, TimeUnit.MILLISECONDS).subscribe(new Consumer<Long>() {
             @Override
-            public void accept(Long aLong) {
-                call(isPost, requestCommand, params, t, callResult, null);
+            public void accept(Long aLong) throws Exception {
+                call(isPost, false, requestCommand, params, t, callResult, null);
             }
         });
     }
@@ -137,7 +139,7 @@ public class RxHttp {
 
                     @Override
                     public void onNext(Long value) {
-                        call(isPost, requestCommand, params, t, callResult, null);
+                        call(isPost, false, requestCommand, params, t, callResult, null);
                     }
 
                     @Override

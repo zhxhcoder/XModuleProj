@@ -1,1 +1,1 @@
-include ':app', ':login', ':share', ':modulebase', ':baselib', ':market', ':trade', ':social', ':live', ':quant'
+include ':app', ':login', ':share', ':modulebase', ':baselib', ':market', ':trade', ':social', ':live', ':quant', ':bullbao'

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Base</string>
+    <string name="refreshview_pull_down_to_refresh">下拉刷新</string>
+    <string name="refreshview_release_to_refresh">释放立即刷新</string>
+    <string name="refreshview_refreshing">加载中...</string>
+    <string name="refreshview_complete">更新完成.</string>
+
+
+    <string name="load_failed">加载失败，请点我重试</string>
+    <string name="load_end">没有更多数据</string>
 </resources>

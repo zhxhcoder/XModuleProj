@@ -13,10 +13,14 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.zhxh.base.app.BaseLazyFragment;
+import com.zhxh.base.component.ProgressDrawableLoadingView;
+import com.zhxh.base.config.CommonDataManager;
 import com.zhxh.base.network.KeyValueData;
 import com.zhxh.base.network.RequestCommand;
 import com.zhxh.base.network.RxHttp;
 import com.zhxh.base.utils.CommonUtils;
+import com.zhxh.base.utils.NetworkUtils;
+import com.zhxh.base.utils.UIStatusBarHelper;
 import com.zhxh.xbuttonlib.XButton;
 import com.zhxh.xlibkit.parser.GsonParser;
 import com.zhxh.xmoduleproj.R;
@@ -136,7 +140,7 @@ public class BullBaoRecordFragment extends BaseLazyFragment implements OnRefresh
     }
 
     private void loadData() {
-        if (!NetworkUtils.isConnected()) {
+        if (!NetworkUtils.isConnected(getActivity())) {
             refreshData();
         } else {
             refreshData();

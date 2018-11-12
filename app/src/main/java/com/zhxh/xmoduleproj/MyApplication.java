@@ -3,10 +3,12 @@ package com.zhxh.xmoduleproj;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.zhxh.base.config.AppConfig;
 import com.zhxh.base.app.BaseApp;
+import com.zhxh.base.config.AppConfig;
 
-public class MainApplication extends BaseApp {
+public class MyApplication extends BaseApp {
+    public static MyApplication instance;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,6 +22,10 @@ public class MainApplication extends BaseApp {
 
         initModuleApp(this);
         initModuleData(this);
+    }
+
+    public static MyApplication getInstance() {
+        return instance;
     }
 
     private boolean isDebug() {

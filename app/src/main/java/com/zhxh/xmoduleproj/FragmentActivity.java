@@ -9,6 +9,16 @@ import com.zhxh.modulebase.ServiceFactory;
 public class FragmentActivity extends BaseActivity {
 
     @Override
+    protected void setLayout() {
+
+    }
+
+    @Override
+    protected void refreshData() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);

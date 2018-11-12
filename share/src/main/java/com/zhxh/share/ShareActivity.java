@@ -14,6 +14,16 @@ import com.zhxh.modulebase.ServiceFactory;
 @Route(path = "/share/share")
 public class ShareActivity extends BaseActivity {
     @Override
+    protected void setLayout() {
+
+    }
+
+    @Override
+    protected void refreshData() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);

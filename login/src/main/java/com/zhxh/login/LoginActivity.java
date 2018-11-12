@@ -15,6 +15,16 @@ public class LoginActivity extends BaseActivity {
     private TextView tvState;
 
     @Override
+    protected void setLayout() {
+
+    }
+
+    @Override
+    protected void refreshData() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);

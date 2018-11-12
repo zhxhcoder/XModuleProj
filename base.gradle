@@ -34,8 +34,10 @@ ext {
             'libSmartRefresh'         : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7',
             'libBRVAH'                : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40',
             'libGilde'                : 'com.github.bumptech.glide:glide:3.7.0',
-            "libXButton"              : 'com.zhxh:xbuttonlib:3.1',
+            "libXComponent"           : 'com.zhxh:xcomponentlib:3.1',
+            "libXButton"              : 'com.zhxh:xbuttonlib:3.8',
             "libXChart"               : 'com.zhxh:xchartlib:2.7',
+            "libXKit"                 : 'com.zhxh:xlibkit:2.1',
 
             //网络框架
             'libGson'                 : 'com.google.code.gson:gson:2.8.2',

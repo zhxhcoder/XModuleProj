@@ -3,6 +3,7 @@ package com.zhxh.xmoduleproj.bullbao;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.zhxh.base.utils.NetworkUtils;
 import com.zhxh.base.utils.UIStatusBarHelper;
 import com.zhxh.xbuttonlib.XButton;
 import com.zhxh.xlibkit.parser.GsonParser;
+import com.zhxh.xmoduleproj.MyApplication;
 import com.zhxh.xmoduleproj.R;
 
 import java.text.MessageFormat;

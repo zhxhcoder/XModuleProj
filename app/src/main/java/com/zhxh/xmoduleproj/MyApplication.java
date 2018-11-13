@@ -9,6 +9,10 @@ import com.zhxh.base.config.AppConfig;
 public class MyApplication extends BaseApp {
     public static MyApplication instance;
 
+    /** 0是普通 1是夜间*/
+    public static int SKIN_MODE = 0;
+    public static final int SKIN_MODE_NIGHT = 1;
+    public static final int SKIN_MODE_DAY = 0;
     @Override
     public void onCreate() {
         super.onCreate();

@@ -22,7 +22,6 @@ import com.zhxh.base.network.RxHttp;
 import com.zhxh.base.utils.CommonUtils;
 import com.zhxh.base.utils.NetworkUtils;
 import com.zhxh.base.utils.UIStatusBarHelper;
-import com.zhxh.xbuttonlib.XButton;
 import com.zhxh.xlibkit.parser.GsonParser;
 import com.zhxh.xmoduleproj.MyApplication;
 import com.zhxh.xmoduleproj.R;

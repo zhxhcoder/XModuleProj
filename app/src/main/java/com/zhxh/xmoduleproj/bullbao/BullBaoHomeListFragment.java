@@ -1,7 +1,9 @@
 package com.zhxh.xmoduleproj.bullbao;
 
 import android.os.Bundle;
+import android.os.UserManager;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,7 @@ import com.zhxh.base.app.BaseLazyFragment;
 import com.zhxh.base.network.KeyValueData;
 import com.zhxh.base.network.RequestCommand;
 import com.zhxh.base.network.RxHttp;
-import com.zhxh.xbuttonlib.XButton;
+import com.zhxh.base.utils.CommonUtils;
 import com.zhxh.xcomponentlib.ximageview.RatioImageView;
 import com.zhxh.xlibkit.parser.GsonParser;
 import com.zhxh.xlibkit.rxbus.RxBus;
